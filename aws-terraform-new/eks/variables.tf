@@ -25,5 +25,5 @@ variable "ssh_key_name" {
 
 variable "ebs_csi_driver_version" {
   type        = string
-  default     = "v1.40.1-eksbuild.1"
+  default     = "v1.63.1"
 }
