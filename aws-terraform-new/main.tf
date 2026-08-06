@@ -44,11 +44,11 @@ module "security_group" {
 
 module "ec2" {
   source             = "./ec2"
-  ami_id             = "ami-04b4f1a9cf54c11d0" # Ubuntu 22.04 (us-east-1)
-  instance_type      = "t2.micro"
+  ami_id             = "ami-035827357e3c7e810" # Ubuntu 22.04 (us-east-1)
+  instance_type      = "t3.micro"
   subnet_id          = element(module.vpc.public_subnet_ids, 0)
   security_group_ids = [module.security_group.sg_ec2_sg_ssh_http_id]
-  key_name           = "project-keypair2025"  # create keypair manually & update name here
+  key_name           = "project-keypair"  # create keypair manually & update name here
 }
 
 module "eks" {
@@ -73,8 +73,8 @@ module "rds" {
   allocated_storage       = 20
   storage_type            = "gp2"
   engine                  = "MySQL"
-  engine_version          = "8.0.41"
-  instance_class          = "db.t3.micro"
+  engine_version          = "8.4.9"
+  instance_class          = "db.t4g.micro"
   backup_retention_period = 0
 }
 
