@@ -14,9 +14,9 @@ terraform {
 
 terraform {
   backend "s3" {
-    bucket  = "terraformbuckerforstatefiles" # create s3 bucket to store statefile
+    bucket  = "terraformbuckerforstatefiles-105417737522-ap-south-1-an" # create s3 bucket to store statefile
     key     = "dev/terraform.tfstate"
-    region  = "us-east-1"
+    region  = "ap-south-1"
     encrypt = false
   }
 }
@@ -24,7 +24,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 module "vpc" {
@@ -32,7 +32,7 @@ module "vpc" {
   vpc_cidr             = "10.0.0.0/16"
   vpc_name             = "project-vpc"
   cidr_public_subnet   = ["10.0.1.0/24", "10.0.2.0/24"]
-  eu_availability_zone = ["us-east-1a", "us-east-1b"]
+  eu_availability_zone = ["ap-south-1a", "ap-south-1b"]
 }
 
 module "security_group" {
