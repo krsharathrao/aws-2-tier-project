@@ -143,7 +143,7 @@ pipeline {
         stage('Update helm values.yaml with New Docker Image') {
             environment {
                 GIT_REPO_NAME = "aws-2-tier-helm-chart"
-                GIT_USER_NAME = "vijaygiduthuri"
+                GIT_USER_NAME = "krsharathrao"
             }
             steps {
                 withCredentials([usernamePassword(
