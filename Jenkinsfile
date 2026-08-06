@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        AWS_DEFAULT_REGION = 'us-east-1'
-        AWS_ACCOUNT_ID     = '657001761946'
+        AWS_DEFAULT_REGION = 'ap-south-1'
+        AWS_ACCOUNT_ID     = '105417737522'
         IMAGE_TAG          = "1.0.${BUILD_NUMBER}"
         SCANNER_HOME       = tool 'sonar-scanner'
         FRONTEND_ECR_URI   = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/frontend-repo"
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'github-cred',
-                    url: 'https://github.com/vijaygiduthuri/aws-2-tier-project.git'
+                    url: 'https://github.com/krsharathrao/aws-2-tier-project.git'
             }
         }
 
@@ -136,7 +136,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'github-cred',
-                    url: 'https://github.com/vijaygiduthuri/aws-2-tier-helm-chart.git'
+                    url: 'https://github.com/krsharathrao/aws-2-tier-helm-chart.git'
             }
         }
 
@@ -154,14 +154,14 @@ pipeline {
                     sh """
                         set -e
 
-                        git config user.email "vijaygiduthuri@example.com"
+                        git config user.email "krsharathrao@gmail.com"
                         git config user.name "${GIT_USER_NAME}"
 
                         echo "=== BEFORE ==="
                         cat helm-chart/values.yaml
 
-                        sed -i "s|image: 657001761946.dkr.ecr.us-east-1.amazonaws.com/frontend-repo:.*|image: 657001761946.dkr.ecr.us-east-1.amazonaws.com/frontend-repo:${IMAGE_TAG}|" helm-chart/values.yaml
-                        sed -i "s|image: 657001761946.dkr.ecr.us-east-1.amazonaws.com/backend-repo:.*|image: 657001761946.dkr.ecr.us-east-1.amazonaws.com/backend-repo:${IMAGE_TAG}|" helm-chart/values.yaml
+                        sed -i "s|image: 105417737522.dkr.ecr.ap-south-1.amazonaws.com/frontend-repo:.*|image: 105417737522.dkr.ecr.ap-south-1.amazonaws.com/frontend-repo:${IMAGE_TAG}|" helm-chart/values.yaml
+                        sed -i "s|image: 105417737522.dkr.ecr.ap-south-1.amazonaws.com/backend-repo:.*|image: 105417737522.dkr.ecr.ap-south-1.amazonaws.com/backend-repo:${IMAGE_TAG}|" helm-chart/values.yaml
 
                         echo "=== AFTER ==="
                         cat helm-chart/values.yaml
