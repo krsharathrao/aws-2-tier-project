@@ -65,8 +65,8 @@ module "rds" {
   source                  = "./rds"
   db_identifier           = "my-rds-instance"
   db_name                 = "appdb"
-  db_username             = "vijay"
-  db_password             = "Password123" 
+  db_username             = "sharath"
+  db_password             = "redhat" 
   db_subnet_ids           = module.vpc.public_subnet_ids
   db_subnet_group_name    = "rds-subnet-group"
   security_group_id       = module.security_group.rds_mysql_sg_id
