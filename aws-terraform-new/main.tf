@@ -64,17 +64,17 @@ module "eks" {
 module "rds" {
   source                  = "./rds"
   db_identifier           = "my-rds-instance"
-  db_name                 = "appdb"
+  db_name                 = "appdb-1"
   db_username             = "sharath"
   db_password             = "redhat" 
   db_subnet_ids           = module.vpc.public_subnet_ids
   db_subnet_group_name    = "rds-subnet-group"
   security_group_id       = module.security_group.rds_mysql_sg_id
   allocated_storage       = 20
-  storage_type            = "gp2"
+  storage_type            = "gp3"
   engine                  = "MySQL"
   engine_version          = "8.4.9"
-  instance_class          = "db.t4g.micro"
+  instance_class          = "db.t3.micro"
   backup_retention_period = 0
 }
 
