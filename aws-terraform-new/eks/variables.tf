@@ -23,7 +23,7 @@ variable "ssh_key_name" {
   description = "SSH key pair name for worker nodes"
 }
 
-variable "ebs_csi_driver_version" {
-  type        = string
-  default     = "v1.63.1"
-}
+#variable "ebs_csi_driver_version" {
+#  type        = string
+#  default     = "v1.63.1"
+#}
