@@ -63,8 +63,8 @@ module "eks" {
 
 module "rds" {
   source                  = "./rds"
-  db_identifier           = "my-rds-instance"
-  db_name                 = "appdb-1"
+  db_identifier           = "my_rds_instance"
+  db_name                 = "rds_db_1"
   db_username             = "sharath"
   db_password             = "redhat" 
   db_subnet_ids           = module.vpc.public_subnet_ids
