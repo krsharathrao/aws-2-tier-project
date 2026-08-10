@@ -58,7 +58,7 @@ module "eks" {
   cluster_sg_id          = module.security_group.eks_cluster_sg_id
   node_sg_id             = module.security_group.eks_node_sg_id
   ssh_key_name           = "deployer-key"
-  ebs_csi_driver_version = "v1.40.1-eksbuild.1"
+  #ebs_csi_driver_version = "v1.40.1-eksbuild.1"
 }
 
 module "rds" {
